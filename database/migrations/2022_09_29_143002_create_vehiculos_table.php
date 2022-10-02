@@ -13,17 +13,21 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('accesorio', function (Blueprint $table) {
-            $table->bigIncrements('idAccesorio');
-            $table->string('nombre');
-            $table->integer('stock');
+        Schema::create('vehiculos', function (Blueprint $table) {
+            $table->bigIncrements('idVehiculo');
+            $table->unsignedBigInteger('idModelo');
+            $table->unsignedBigInteger('idOferta');
+            $table->float('precio');
             $table->text('descripcion');
+            $table->integer('anio');
+            $table->string('nroChasis', 17)->unique();
             $table->text('imagen');
             $table->boolean('habilitado')->default(true);
+            $table->boolean('reservado')->default(false);
             $table->boolean('eliminado')->default(false);
-            $table->unsignedBigInteger('idOferta')->nullable();
             $table->timestamps();
-            $table->foreign('idOferta')->references('idOferta')->on('oferta');
+            $table->foreign('idModelo')->references('idModelo')->on('modelos');
+            $table->foreign('idOferta')->references('idOferta')->on('ofertas');
         });
     }
 
@@ -34,6 +38,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('accesorio');
+        Schema::dropIfExists('vehiculos');
     }
 };

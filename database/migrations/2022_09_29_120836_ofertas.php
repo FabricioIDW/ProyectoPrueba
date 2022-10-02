@@ -13,13 +13,13 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('usuario', function (Blueprint $table) {
-            $table->bigIncrements('idUsuario');
-            $table->string('email')->unique();
-            $table->text('contrasenia');
-            $table->unsignedBigInteger('idTipoUsuario')->nullable();
+        Schema::create('ofertas', function (Blueprint $table) {
+            $table->bigIncrements('idOferta');
+            $table->date('fechaInicio');
+            $table->date('fechaFin');
+            $table->float('descuento', 5, 2);
             $table->timestamps();
-            $table->foreign('idTipoUsuario')->references('idTipoUsuario')->on('tipousuario');
+            // $table->primary(['idOferta', 'fechaInicio', 'fechaFin', 'descuento']);
         });
     }
 
@@ -30,6 +30,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('usuario');
+        Schema::dropIfExists('ofertas');
     }
 };

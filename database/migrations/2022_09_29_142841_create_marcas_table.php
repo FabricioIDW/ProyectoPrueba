@@ -13,13 +13,10 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('vendedor', function (Blueprint $table) {
-            $table->bigIncrements('dniVendedor');
+        Schema::create('marcas', function (Blueprint $table) {
+            $table->id('idMarca');
             $table->string('nombre');
-            $table->string('apellido');
-            $table->unsignedBigInteger('idUsuario');
             $table->timestamps();
-            $table->foreign('idUsuario')->references('idUsuario')->on('usuario');
         });
     }
 
@@ -30,6 +27,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('vendedor');
+        Schema::dropIfExists('marcas');
     }
 };
