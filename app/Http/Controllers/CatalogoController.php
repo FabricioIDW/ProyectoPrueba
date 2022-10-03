@@ -9,17 +9,17 @@ class CatalogoController extends Controller
     // Mostrar la página principal
     public function index()
     {
-        return view('cursos.index');
+        return view('catalogo.index');
     }
     // Para crear un curso etc.
     public function create()
     {
-        return view('cursos.create');
+        return view('catalogo.create');
     }
     // Mostrar un curso en particular
     public function show($marca, $vehiculo = null)
     {
-        return view('cursos.show', compact('marca')); //['marca' => $marca]
+        return view('catalogo.show', compact('marca')); //['marca' => $marca]
         // if ($vehiculo) {
         //     return "Usted selecciono la marca: $marca y el modelo: $vehiculo";
         // } else {

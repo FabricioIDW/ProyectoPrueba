@@ -3,7 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\CatalogoController;
-
+use App\Http\Controllers\OfertaController;
 
 /*
 |--------------------------------------------------------------------------
@@ -21,9 +21,11 @@ Route::get('/', HomeController::class);
 // Laravel 7:
 // Route::get('/', 'HomeController');
 // Route::get('/catalogo', 'CatalogoController@index');
-Route::controller(CatalogoController::class)->group(function() {
+Route::controller(CatalogoController::class)->group(function () {
     Route::get('/catalogo', 'index'); //Si se pone class busca el metodo __invoke
     Route::get('/catalogo/crearProducto', 'create');
     Route::get('/catalogo/{marca}/{vehiculo?}', 'show');
-
+});
+Route::controller(OfertaController::class)->group(function () {
+    Route::get('/oferta', 'index');
 });
