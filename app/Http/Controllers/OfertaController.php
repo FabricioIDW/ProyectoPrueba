@@ -12,4 +12,5 @@ class OfertaController extends Controller
         $ofertas = Oferta::all();
         return view('oferta.index', compact('ofertas'));
     }
+    // Probando
 }
