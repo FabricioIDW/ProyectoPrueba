@@ -13,4 +13,5 @@ class OfertaController extends Controller
         return view('oferta.index', compact('ofertas'));
     }
     // Probando
+    //probando 2
 }
