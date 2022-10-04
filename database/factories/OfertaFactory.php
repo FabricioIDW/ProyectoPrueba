@@ -20,9 +20,22 @@ class OfertaFactory extends Factory
     public function definition()
     {
         return [
+            'descuento' => $this->faker->randomFloat(2, 5, 30),
             'fechaInicio' => $this->faker->date(),
             'fechaFin' => $this->faker->date(),
-            'descuento' => $this->faker->randomFloat(2, 5, 30)
         ];
     }
+    // public function definition()
+    // {
+    //     $descuento = $this->faker->randomFloat(2, 5, 30);
+    //     $fechaInicio = $this->faker->date();
+    //     $fechaFin = $this->faker->date();
+    //     $slug = $descuento . ' ' . $fechaInicio . ' ' . $fechaFin;
+    //     return [
+    //         'descuento' => $descuento,
+    //         'fechaInicio' => $fechaInicio,
+    //         'fechaFin' => $fechaFin,
+    //         'slug' => Str::slug($slug, '-'),
+    //     ];
+    // }
 }

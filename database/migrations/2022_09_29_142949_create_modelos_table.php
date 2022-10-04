@@ -14,11 +14,11 @@ return new class extends Migration
     public function up()
     {
         Schema::create('modelos', function (Blueprint $table) {
-            $table->bigIncrements('idModelo');
+            $table->bigIncrements('id');
             $table->unsignedBigInteger('idMarca');
             $table->string('nombre')->unique();
             $table->timestamps();
-            $table->foreign('idMarca')->references('idMarca')->on('marcas');
+            $table->foreign('idMarca')->references('id')->on('marcas');
         });
     }
 

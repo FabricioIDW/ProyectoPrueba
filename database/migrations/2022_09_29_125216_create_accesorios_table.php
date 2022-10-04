@@ -14,7 +14,7 @@ return new class extends Migration
     public function up()
     {
         Schema::create('accesorios', function (Blueprint $table) {
-            $table->bigIncrements('idAccesorio');
+            $table->bigIncrements('id');
             $table->unsignedBigInteger('idOferta')->nullable();
             $table->string('nombre')->unique();
             $table->integer('stock');
@@ -23,7 +23,7 @@ return new class extends Migration
             $table->boolean('habilitado')->default(true);
             $table->boolean('eliminado')->default(false);
             $table->timestamps();
-            $table->foreign('idOferta')->references('idOferta')->on('ofertas');
+            $table->foreign('idOferta')->references('id')->on('ofertas');
         });
     }
 

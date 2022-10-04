@@ -14,10 +14,11 @@ return new class extends Migration
     public function up()
     {
         Schema::create('ofertas', function (Blueprint $table) {
-            $table->bigIncrements('idOferta');
+            $table->bigIncrements('id');
+            $table->float('descuento', 5, 2);
             $table->date('fechaInicio');
             $table->date('fechaFin');
-            $table->float('descuento', 5, 2);
+            // $table->string('slug'); //para url amigable
             $table->timestamps();
             // $table->primary(['idOferta', 'fechaInicio', 'fechaFin', 'descuento']);
         });

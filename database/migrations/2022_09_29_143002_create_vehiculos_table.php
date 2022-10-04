@@ -14,7 +14,7 @@ return new class extends Migration
     public function up()
     {
         Schema::create('vehiculos', function (Blueprint $table) {
-            $table->bigIncrements('idVehiculo');
+            $table->bigIncrements('id');
             $table->unsignedBigInteger('idModelo');
             $table->unsignedBigInteger('idOferta');
             $table->float('precio');
@@ -26,8 +26,8 @@ return new class extends Migration
             $table->boolean('reservado')->default(false);
             $table->boolean('eliminado')->default(false);
             $table->timestamps();
-            $table->foreign('idModelo')->references('idModelo')->on('modelos');
-            $table->foreign('idOferta')->references('idOferta')->on('ofertas');
+            $table->foreign('idModelo')->references('id')->on('modelos');
+            $table->foreign('idOferta')->references('id')->on('ofertas');
         });
     }
 

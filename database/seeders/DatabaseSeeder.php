@@ -24,6 +24,6 @@ class DatabaseSeeder extends Seeder
 
         // php artisan migrate:fresh --seed
         // $this->call(OfertaSeeder::class); //Si en el seeder escribimos muchas lineas, pero con el factory no es necesario
-        Oferta::factory(10)->create();
+        Oferta::factory(50)->create();
     }
 }
