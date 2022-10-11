@@ -28,6 +28,7 @@ Route::controller(ContactanosController::class)->group(function () {
     Route::get('contactanos', 'index')->name('contactanos.index');
     Route::post('contactanos', 'store')->name('contactanos.store');
 });
+
 // Este archivo es leido de manera secuencial entonces busca hasta que coincida la url ingresada
 // Si la ruta crearProducto la ponemos abajo de {vehiculo} no funciona bien 
 // Laravel 7:
